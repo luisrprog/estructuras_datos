@@ -1,5 +1,5 @@
-#ifndef _colad
-#define _colad
+#ifndef _pilad
+#define _pilad
 #define True 1
 #define False 0
 

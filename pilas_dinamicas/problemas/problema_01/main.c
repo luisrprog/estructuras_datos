@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "cola.h"
+#include "pilad.h"
 
 void err();
 void SolicitarDatos(Pila *s);

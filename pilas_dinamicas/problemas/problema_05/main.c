@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "cola.h"
+#include "pilad.h"
 
 void err();
 void menu(Pila *s, Pila *t, Pila *u);
