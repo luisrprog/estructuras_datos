@@ -3,34 +3,57 @@
 #include "pilad.h"
 
 void err();
-void SolicitarDatos(Pila *s);
-void MostrarDatos(Pila *s);
+void LeeTexto(Pila *s);
+void AnalizaTexto(Pila *s);
+void MostrarTexto(Pila *s);
 
 int main(){
 
     Pila *s = CrearPila();
-    SolicitarDatos(s);
-    MostrarDatos(s);
-
+    LeeTexto(s);
+    AnalizaTexto(s);
+    MostrarTexto(s);
     return False;
 }
 
-void MostrarDatos(Pila *s){
-    printf("\n\tMostrando pila \n");
+void MostrarTexto(Pila *s){
+    Pila *aux = CrearPila();
+    char letra;
+    printf("Resultado: \n\n");
     while(PilaVacia(s) == False){
-        printf("elem:  %d\n", Desapilar(s));
+        Apilar(aux, Desapilar(s));
+    }
+    while(PilaVacia(aux) == False){
+        letra = Desapilar(aux);
+        printf("%c", letra);
+    }
+    printf("\n");
+}
+
+void AnalizaTexto(Pila *s){
+    Pila *aux = CrearPila();
+    Pila *basura = CrearPila();
+    while(PilaVacia(s) == False){
+        if(Ultimo(s) == '@'){
+            Apilar(basura, Desapilar(s));
+            Apilar(basura, Desapilar(s));
+        } else {
+            Apilar(aux, Desapilar(s));
+        }
+    }
+    while(PilaVacia(aux) == False){
+        Apilar(s, Desapilar(aux));
     }
 }
 
-void SolicitarDatos(Pila *s){
-    int x = 1;
-    while(x != 0){
-        printf("Nuevo elemento:  ");
-        scanf("%d", &x);
-        if(x != 0){
-            Apilar(s, x);
-        }
-        getchar();
+void LeeTexto(Pila *s){
+    char cad[100];
+    int i=0;
+    printf("\nIngrese cadena post-fija:\n");
+    scanf("%s", &cad);
+    while(cad[i] != '\0'){
+        Apilar(s, cad[i]);
+        i++;
     }
 }
 
