@@ -25,7 +25,7 @@ int main(){
 
 void MostrarPila(Pila *pila, int np){
     Pila *aux = CrearPila();
-    int n;
+    char n;
     system("clear");
     if(np == 1){
         printf("\nMostrando Pila Original\n");
@@ -36,7 +36,7 @@ void MostrarPila(Pila *pila, int np){
     }
     while(PilaVacia(pila) == False){
         n = Desapilar(pila);
-        printf("(%d)-> %d \n", np, n);
+        printf("(%d)-> %c \n", np, n);
         Apilar(aux, n);
     }
     while(PilaVacia(aux) == False){
@@ -104,7 +104,7 @@ void ElementoFondo(Pila *pila){
     }
     system("clear");
     printf("\n\n\tEl elemento del fondo es: %d\n", fondo);
-    sleep(3);
+    sleep(2);
 }
 
 void NumeroElementos(Pila *pila){
@@ -119,15 +119,15 @@ void NumeroElementos(Pila *pila){
     }
     system("clear");
     printf("\n\n\tLa pila tiene %d elementos\n", cont);
-    sleep(3);
+    sleep(2);
 }
 
 void solicitarDatos(Pila *s){
-    int n = 1;
-    while(n != 0){
+    char n = '1';
+    while(n != '0'){
         printf("Elemento:  ");
-        scanf("%d", &n);
-        if(n != 0){
+        scanf("%c", &n);
+        if(n != '0'){
             Apilar(s, n);
         }
         getchar();
