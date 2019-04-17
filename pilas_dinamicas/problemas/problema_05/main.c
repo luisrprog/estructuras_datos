@@ -47,7 +47,7 @@ void MostrarPila(Pila *pila, int np){
 
 void ConcatenarPilas(Pila *s, Pila *t, Pila *u){
     Pila *s_aux = CrearPila();
-    int n;
+    char n;
     while(PilaVacia(s) == False){
         n = Desapilar(s);
         Apilar(s_aux, n);
@@ -72,7 +72,7 @@ void ConcatenarPilas(Pila *s, Pila *t, Pila *u){
 
 void CopiarPila(Pila *s, Pila *t){
     Pila *aux = CrearPila();
-    int n;
+    char n;
     // Si t esta lleno, entonces se vacia
     if(PilaVacia(t) == False){
         while(PilaVacia(t) == False){
@@ -93,7 +93,7 @@ void CopiarPila(Pila *s, Pila *t){
 }
 
 void ElementoFondo(Pila *pila){
-    int fondo;
+    char fondo;
     Pila *aux = CrearPila();
     while(PilaVacia(pila) == False){
         fondo = Desapilar(pila);
