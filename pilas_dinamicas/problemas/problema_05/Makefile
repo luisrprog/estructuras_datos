@@ -2,16 +2,16 @@
 all: limpiar programa clean exe
 
 # Compila el programa principal
-programa: main.o cola.o
-	gcc -o programa main.o cola.o
+programa: main.o pilad.o
+	gcc -o programa main.o pilad.o
 
 # Compila el main.c
-main.o: main.c cola.h
+main.o: main.c pilad.h
 	gcc -c main.c
 
 # Compila el queue.c
-queue.o: cola.c cola.h
-	gcc -c cola.c
+stack.o: pilad.c pilad.h
+	gcc -c pilad.c
 
 # Limpia los archivos basura
 clean:
