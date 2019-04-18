@@ -19,7 +19,7 @@ int main(){
 void MostrarTexto(Pila *s){
     Pila *aux = CrearPila();
     char letra;
-    printf("Resultado: \n\n");
+    printf("\n\nResultado: ");
     while(PilaVacia(s) == False){
         Apilar(aux, Desapilar(s));
     }
@@ -31,18 +31,21 @@ void MostrarTexto(Pila *s){
 }
 
 void AnalizaTexto(Pila *s){
-    Pila *aux = CrearPila();
+    Pila *evaluar = CrearPila();
     Pila *basura = CrearPila();
+    char letra;
+    int cont=0, i;
     while(PilaVacia(s) == False){
-        if(Ultimo(s) == '@'){
-            Apilar(basura, Desapilar(s));
-            Apilar(basura, Desapilar(s));
-        } else {
-            Apilar(aux, Desapilar(s));
-        }
+        Apilar(evaluar, Desapilar(s));
     }
-    while(PilaVacia(aux) == False){
-        Apilar(s, Desapilar(aux));
+    while(PilaVacia(evaluar) == False){
+        letra = Desapilar(evaluar);
+        if(letra != '@'){
+            Apilar(s, letra);
+        } else{
+            Apilar(basura, letra);
+            Apilar(basura, Desapilar(s));
+        }
     }
 }
 
