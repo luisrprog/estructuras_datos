@@ -30,25 +30,25 @@ void DestruirPila(Pila *pila){
     free(pila);
 }
 
-void Apilar(Pila *pila, int elem){
+void Apilar(Pila *pila, CAR elem){
     Nodo *nodo = CrearNodo();
     nodo->dato = elem;
     nodo->anterior = pila->tope;
     pila->tope = nodo;
 }
 
-int Desapilar(Pila *pila){
+CAR Desapilar(Pila *pila){
     if(PilaVacia(pila) == True){
         err();
     }
     Nodo *nodo = pila->tope;
-    int elem = nodo->dato;
+    CAR elem = nodo->dato;
     pila->tope = pila->tope->anterior;
     DestruirNodo(nodo);
     return elem;
 }
 
-int Ultimo(Pila *pila){
+CAR Ultimo(Pila *pila){
     if(PilaVacia(pila) == True){
         err();
     }
