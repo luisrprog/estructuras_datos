@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "piald.h"
+#include "pilad.h"
 
 void err();
 
