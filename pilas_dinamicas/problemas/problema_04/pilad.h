@@ -4,7 +4,7 @@
 #define False 0
 
 typedef struct nodo {
-    int dato;
+    float dato;
     struct nodo *anterior;
 } Nodo;
 
@@ -18,10 +18,10 @@ void DestruirNodo(Nodo *nodo);
 Pila *CrearPila();
 void DestruirPila(Pila *pila);
 
-void Apilar(Pila *pila, int elem);
-int Desapilar(Pila *pila);
+void Apilar(Pila *pila, float elem);
+float Desapilar(Pila *pila);
 
-int Ultimo(Pila *pila);
+float Ultimo(Pila *pila);
 int PilaVacia(Pila *pila);
 
 #endif
